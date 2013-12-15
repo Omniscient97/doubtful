@@ -26,8 +26,3 @@ class Lexicon(object):
 		return tokens
 
 
-lexicon = Lexicon()
-
-user_input = input('> ')
-print(lexicon.scan(user_input))
-input('press enter to exit ;)')
