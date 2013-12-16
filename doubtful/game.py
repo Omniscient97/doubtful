@@ -21,6 +21,8 @@ print('Type "exit" to quit the game')
 room1 = Room('Room 1','You\'re in a room which is completely empty save for the man standing beside you. There is a doorway to the North.', [])
 room2 = Room('Room 2','', [])
 room3 = Room('Room 3','', [])
+room1.exits[2] = room2
+
 
 player.room = room1
 
@@ -33,7 +35,7 @@ while game:
 		if word[1] == 'look':
 			print(player.room.description)
 		if word[1] == 'status':
-			print('Coming soon.')
+			print_status(player)
 		if word[1] == "go":
 			print('"go" is Coming soon.')
 		if word[1] == 'exit':

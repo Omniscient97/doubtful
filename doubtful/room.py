@@ -7,4 +7,4 @@ class Room(object):
 		self.inventory = Inventory()
 		for item in contents:
 			self.inventory.add(item)
-		self.exits = [] # exits = [north, east, south, west]
+		self.exits = ['none', 'none', 'none', 'none'] # exits = [north, east, south, west]
