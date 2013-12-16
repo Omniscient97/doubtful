@@ -7,7 +7,7 @@ from room import *
 
 def print_status(player):
 	print('')
-	print('Current Status for %s' % player.name)
+	print('Current Status for: %s' % player.name)
 	print('Room: %s' % player.room.name)
 	print('Exits: %s' % 'Not Implemented Yet')
 	print('')
@@ -18,9 +18,9 @@ player.set_name()
 print('Hello,', player.name)
 print('Type "exit" to quit the game')
 
-room1 = Room("Room 1", [])
-room2 = Room("Room 2", [])
-room3 = Room("Room 3", [])
+room1 = Room('Room 1','You\'re in a room which is completely empty save for the man standing beside you. There is a doorway to the North.', [])
+room2 = Room('Room 2','', [])
+room3 = Room('Room 3','', [])
 
 player.room = room1
 
@@ -30,6 +30,8 @@ game = True
 while game:
 	user_input = lexicon.scan(input('enter commands: '))
 	for word in user_input:
+		if word[1] == 'look':
+			print(player.room.description)
 		if word[1] == 'status':
 			print('Coming soon.')
 		if word[1] == "go":
