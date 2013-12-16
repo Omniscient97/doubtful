@@ -9,13 +9,13 @@ def print_status(player):
 	print('')
 	print('Current Status for %s' % player.name)
 	print('Room: %s' % player.room.name)
-	print('Pathways: %s' % 'Not Implemented Yet')
+	print('Exits: %s' % 'Not Implemented Yet')
 	print('')
 lexicon = Lexicon()
 player = Player()
-
-player.name = input('Please input your name: ').capitalize()
-print("Hello,", player.name)
+player.set_name()
+#player.name = input('Please input your name: ').capitalize()
+print('Hello,', player.name)
 print('Type "exit" to quit the game')
 
 room1 = Room("Room 1", [])
@@ -30,11 +30,11 @@ game = True
 while game:
 	user_input = lexicon.scan(input('enter commands: '))
 	for word in user_input:
-		if word[1] == "status":
-			print("Coming soon.")
+		if word[1] == 'status':
+			print('Coming soon.')
 		if word[1] == "go":
-			
-		if word[1] == "exit":
+			print('"go" is Coming soon.')
+		if word[1] == 'exit':
 			game = False
-		if word[0] == "error":
+		if word[0] == 'error':
 			print('I dont understand "%s"' % word[1])
