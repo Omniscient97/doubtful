@@ -17,6 +17,9 @@
 #12 |               |
 #    ===============
 
-#1 = You
-#2 = Jim
-#3 = Jim's Glasses
+#  @1 - Room 1
+#  @2 - Room 2
+#
+#  #1 = You
+#  #2 = Jim
+#  #3 = Jim's Glasses
