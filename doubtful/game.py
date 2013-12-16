@@ -1,8 +1,7 @@
 from lexicon import *
-
-class Player(object):
-	def __init__(self):
-		self.name = ''
+from room import *
+from characters import *
+from story import *
 
 lexicon = Lexicon()
 player = Player()
