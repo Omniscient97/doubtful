@@ -32,6 +32,8 @@ while game:
 	for word in user_input:
 		if word[1] == "status":
 			print("Coming soon.")
+		if word[1] == "go":
+			
 		if word[1] == "exit":
 			game = False
 		if word[0] == "error":
