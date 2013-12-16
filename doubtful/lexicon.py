@@ -3,7 +3,7 @@ WORD_TYPES = {
 	'direction' : ['north', 'south', 'east', 'west', 'up', 'down', 'left', 'right'],
 	'noun': ['door', 'key', 'man', 'woman', 'trinket'],
 	'stop': ['the', 'in', 'of'],
-	'command': ['status'],
+	'command': ['status', 'help'],
 	'extra': ['exit', 'save', 'load', 'reset']
 }
 
@@ -26,3 +26,9 @@ class Lexicon(object):
 			else:
 				tokens.append( (word_type, word))
 		return tokens
+
+def return_verbs():
+	verb_list = []
+	for word in WORD_TYPES['verb']:
+		verb_list.append(word)
+	return verb_list

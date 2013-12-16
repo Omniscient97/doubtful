@@ -38,6 +38,10 @@ while game:
 			print_status(player)
 		if word[1] == "go":
 			print('"go" is Coming soon.')
+		if word[1] == 'help':
+			print('available commands: %s' % 'PSYCHE')
+			print("Verbs: %s" % return_verbs())
+
 		if word[1] == 'exit':
 			game = False
 		if word[0] == 'error':
