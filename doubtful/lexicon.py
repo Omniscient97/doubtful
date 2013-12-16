@@ -3,6 +3,7 @@ WORD_TYPES = {
 	'direction' : ['north', 'south', 'east', 'west', 'up', 'down', 'left', 'right'],
 	'noun': ['door', 'key'],
 	'stop': ['the', 'in', 'of']
+	'extra': ['exit', 'save', 'load', 'reset']
 }
 
 VOCABULARY = {word: word_type for word_type, words in WORD_TYPES.items() for word in words}
@@ -24,5 +25,3 @@ class Lexicon(object):
 			else:
 				tokens.append( (word_type, word))
 		return tokens
-
-
