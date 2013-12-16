@@ -1,5 +1,5 @@
 WORD_TYPES = {
-	'verb' : ['go', 'use', 'eat', 'look', 'get'],
+	'verb' : ['go', 'use', 'eat', 'look', 'get', 'check', 'drink', 'talk'],
 	'direction' : ['north', 'south', 'east', 'west', 'up', 'down', 'left', 'right'],
 	'noun': ['door', 'key', 'man', 'woman', 'trinket'],
 	'stop': ['the', 'in', 'of'],
