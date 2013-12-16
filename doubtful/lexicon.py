@@ -1,7 +1,7 @@
 WORD_TYPES = {
 	'verb' : ['go', 'use', 'eat', 'look', 'get'],
 	'direction' : ['north', 'south', 'east', 'west', 'up', 'down', 'left', 'right'],
-	'noun': ['door', 'key'],
+	'noun': ['door', 'key', 'man', 'woman', 'trinket'],
 	'stop': ['the', 'in', 'of'],
 	'command': ['status'],
 	'extra': ['exit', 'save', 'load', 'reset']
