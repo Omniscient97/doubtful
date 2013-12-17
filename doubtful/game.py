@@ -18,7 +18,12 @@ player.set_name()
 print('Hello,', player.name)
 print('Type "exit" to quit the game')
 
+
+
 room1 = Room('Room 1','You\'re in a room which is completely empty save for the man standing beside you. There is a doorway to the North.', [])
+
+jim = NPC('Jim', room1)
+room1.inventory.add(jim)
 room2 = Room('Room 2','', [])
 room3 = Room('Room 3','', [])
 room1.exits[2] = room2
@@ -41,6 +46,11 @@ while game:
 		if word[1] == 'help':
 			print('available commands: %s' % 'PSYCHE')
 			print("Verbs: %s" % return_verbs())
+		if word[1] == 'talk':
+			print(player.room.inventory.list_of_items())
+			for item in player.room.inventory.list_of_items():
+				if item.type == 'person':
+					player.talk(item)
 
 		if word[1] == 'exit':
 			game = False
