@@ -3,7 +3,7 @@ from room import *
 from characters import *
 from story import *
 from room import *
-
+from item import *
 
 def print_status(player):
 	print('')
@@ -23,11 +23,15 @@ print('Type "exit" to quit the game')
 room1 = Room('Room 1','You\'re in a room which is completely empty save for the man standing beside you. There is a doorway to the North.', [])
 
 jim = NPC('Jim', room1)
+jim.dialogue = 'Who\'s that? Where are you? I can\'t see without my glasses! Have you seen them anywhere?'
+jim_glasses = Item('Jim\'s Glasses')
 room1.inventory.add(jim)
+room1.inventory.add(player)
 room2 = Room('Room 2','', [])
+room2.inventory.add(jim_glasses)
 room3 = Room('Room 3','', [])
 room1.exits[2] = room2
-
+room2.exits[0] = room1
 
 player.room = room1
 
@@ -39,15 +43,15 @@ while game:
 	for word in user_input:
 		if word[1] == 'look':
 			print(player.room.description)
+			print(player.room.inventory.list_of_items_by_name())
 		if word[1] == 'status':
 			print_status(player)
 		if word[1] == "go":
-			print('"go" is Coming soon.')
+			player.move(2)
 		if word[1] == 'help':
 			print('available commands: %s' % 'PSYCHE')
 			print("Verbs: %s" % return_verbs())
 		if word[1] == 'talk':
-			print(player.room.inventory.list_of_items())
 			for item in player.room.inventory.list_of_items():
 				if item.type == 'person':
 					player.talk(item)

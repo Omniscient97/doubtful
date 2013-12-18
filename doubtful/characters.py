@@ -12,16 +12,23 @@ class Player(object):
 			if name not in BLACKLIST_NAMES:
 				self.name = name.capitalize()
 	def talk(self, target):
-		print("I will talk with %s soon." % target.name)
-
+		print('%s: ' % target.name + target.dialogue)
 
 	def move(self, direction):
-		print(self.room.exits())
+		print('%s' % self.room.exits)
+		if self.room.exits[direction] != 'none':
+			#print(self.room.inventory.list_of_items())
+			self.room.inventory.remove(self)
+			self.room.exits[direction].inventory.add(self)
+			self.room = self.room.exits[direction]
 
 class NPC(object):
 	def __init__(self, name, room):
 		self.name = name
 		self.room = room
 		self.type = 'person'
+		self.dialogue = ''
+
+
 	def __str__(self):
 		return self.name + '%s' % self.room.name + self.type
