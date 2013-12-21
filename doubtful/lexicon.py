@@ -2,6 +2,7 @@ WORD_TYPES = {
 	'verb' : ['go', 'use', 'eat', 'look', 'get', 'check', 'drink', 'talk', 'take'],
 	'direction' : ['north', 'south', 'east', 'west', 'up', 'down', 'left', 'right'],
 	'noun': ['door', 'key', 'man', 'woman', 'trinket', 'glasses'],
+	'preposition': ['on', 'under'],
 	'stop': ['the', 'in', 'of'],
 	'command': ['status', 'help'],
 	'extra': ['exit', 'save', 'load', 'reset']
@@ -25,6 +26,7 @@ class Lexicon(object):
 					tokens.append( ('int', value))
 			else:
 				tokens.append( (word_type, word))
+		print tokens
 		return tokens
 		
 	def parse(self):
