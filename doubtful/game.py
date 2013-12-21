@@ -4,14 +4,18 @@ from characters import *
 from story import *
 from room import *
 from item import *
+from map import *
+from config import *
 
 def print_status(player):
 	print('')
 	print('Current Status for: %s' % player.name)
 	print('Room: %s' % player.room.name)
-	print('Exits: %s' % 'Not Implemented Yet')
 	print('')
 lexicon = Lexicon()
+config = ConfigurationLoader()
+config.load()
+
 player = Player()
 player.set_name()
 #player.name = input('Please input your name: ').capitalize()
@@ -34,8 +38,8 @@ room1.exits[2] = room2
 room2.exits[0] = room1
 
 player.room = room1
-
-print_status(player)
+print('')
+print(player.room.description)
 
 game = True
 while game:
@@ -48,6 +52,7 @@ while game:
 			print_status(player)
 		if word[1] == "go":
 			player.move(2)
+			print(player.room.description)
 		if word[1] == 'help':
 			print('available commands: %s' % 'PSYCHE')
 			print("Verbs: %s" % return_verbs())
@@ -55,7 +60,8 @@ while game:
 			for item in player.room.inventory.list_of_items():
 				if item.type == 'person':
 					player.talk(item)
-
+		if word[1] == 'map':
+			pass
 		if word[1] == 'exit':
 			game = False
 		if word[0] == 'error':

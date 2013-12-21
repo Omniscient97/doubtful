@@ -26,6 +26,9 @@ class Lexicon(object):
 			else:
 				tokens.append( (word_type, word))
 		return tokens
+		
+	def parse(self):
+		pass
 
 def return_verbs():
 	verb_list = []

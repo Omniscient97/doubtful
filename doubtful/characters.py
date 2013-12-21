@@ -15,9 +15,7 @@ class Player(object):
 		print('%s: ' % target.name + target.dialogue)
 
 	def move(self, direction):
-		print('%s' % self.room.exits)
 		if self.room.exits[direction] != 'none':
-			#print(self.room.inventory.list_of_items())
 			self.room.inventory.remove(self)
 			self.room.exits[direction].inventory.add(self)
 			self.room = self.room.exits[direction]
