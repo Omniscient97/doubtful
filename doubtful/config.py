@@ -11,6 +11,3 @@ class ConfigurationLoader(object):
 
 	def load(self):
 		self.config.read('doubtful/example.config')
-		#print(self.config.sections())
-		#print(self.config.get('Room1', 'description'))
-		#print(self.config.getlist('Room1', 'exits'))
