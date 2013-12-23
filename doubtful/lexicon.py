@@ -4,6 +4,7 @@ WORD_TYPES = {
 	'noun': ['door', 'key', 'man', 'woman', 'trinket', 'glasses'],
 	'preposition': ['on', 'under'],
 	'stop': ['the', 'in', 'of'],
+	'article': ['a', 'an'],
 	'command': ['status', 'help'],
 	'extra': ['exit', 'save', 'load', 'reset']
 }

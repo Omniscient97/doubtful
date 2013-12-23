@@ -1,6 +1,6 @@
 from nose.tools import *
-import doubtful.lexicon
+from doubtful.lexicon import Lexicon
 
 def scan_test():
-	lexicon = doubtful.lexicon.Lexicon()
-	assert(lexicon.scan('use key on door'), [('verb', 'use'), ('noun', 'key'), ('preposition', 'on'), ('noun', 'door')])
+	lexicon = Lexicon()
+	assert_equal(lexicon.scan('use key on door'), [('verb', 'use'), ('noun', 'key'), ('preposition', 'on'), ('noun', 'door')])
