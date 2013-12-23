@@ -27,7 +27,6 @@ class Lexicon(object):
 					tokens.append( ('int', value))
 			else:
 				tokens.append( (word_type, word))
-		print tokens
 		return tokens
 		
 	def parse(self):
