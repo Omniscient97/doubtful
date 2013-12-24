@@ -5,7 +5,7 @@ WORD_TYPES = {
 	'preposition': ['on', 'under'],
 	'stop': ['the', 'in', 'of'],
 	'article': ['a', 'an'],
-	'command': ['status', 'help'],
+	'command': ['status', 'help', 'map'],
 	'extra': ['exit', 'save', 'load', 'reset']
 }
 
