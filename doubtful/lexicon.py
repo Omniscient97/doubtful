@@ -1,8 +1,8 @@
 WORD_TYPES = {
-	'verb' : ['go', 'use', 'eat', 'look', 'get', 'check', 'drink', 'talk', 'take'],
+	'verb' : ['go', 'use', 'eat', 'look', 'get', 'check', 'drink', 'talk', 'take', 'pick', 'listen'],
 	'direction' : ['north', 'south', 'east', 'west', 'up', 'down', 'left', 'right'],
-	'noun': ['door', 'key', 'man', 'woman', 'trinket', 'glasses'],
-	'preposition': ['on', 'under'],
+	'noun': ['door', 'key', 'man', 'woman', 'trinket', 'glasses', 'table', 'apple', 'song'],
+	'preposition': ['on', 'under', 'from', 'to'],
 	'stop': ['the', 'in', 'of'],
 	'article': ['a', 'an'],
 	'command': ['status', 'help', 'map'],
@@ -12,6 +12,9 @@ WORD_TYPES = {
 VOCABULARY = {word: word_type for word_type, words in WORD_TYPES.items() for word in words}
 
 class Lexicon(object):
+
+	def preprocess(self, sentence):
+		return sentence.lower()
 
 	def scan(self, sentence):
 		tokens = []
@@ -29,8 +32,16 @@ class Lexicon(object):
 				tokens.append( (word_type, word))
 		return tokens
 		
-	def parse(self):
-		pass
+	def clean(self, tokens):
+		clean_tokens = tokens
+		for token in clean_tokens:
+			print token
+			if token == ('article', 'an') or token == ('article', 'a'):
+				clean_tokens.remove(token)
+		return clean_tokens
+
+	def parse(self, sentence):
+		return self.clean(self.scan(self.preprocess(sentence)))
 
 def return_verbs():
 	verb_list = []
