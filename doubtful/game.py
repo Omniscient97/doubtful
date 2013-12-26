@@ -43,7 +43,7 @@ print(player.room.description)
 
 game = True
 while game:
-	user_input = lexicon.scan(input('enter commands: '))
+	user_input = lexicon.parse(input('enter commands: '))
 	for word in user_input:
 		if word[1] == 'look':
 			print(player.room.description)

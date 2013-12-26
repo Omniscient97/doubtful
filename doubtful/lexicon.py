@@ -35,7 +35,6 @@ class Lexicon(object):
 	def clean(self, tokens):
 		clean_tokens = tokens
 		for token in clean_tokens:
-			print token
 			if token == ('article', 'an') or token == ('article', 'a'):
 				clean_tokens.remove(token)
 		return clean_tokens
