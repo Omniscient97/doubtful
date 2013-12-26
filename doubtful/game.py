@@ -14,7 +14,7 @@ def print_status(player):
 	print('')
 lexicon = Lexicon()
 config = ConfigurationLoader()
-config.load()
+config.load('doubtful/example.config')
 
 player = Player()
 player.set_name()

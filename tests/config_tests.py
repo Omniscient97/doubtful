@@ -1,11 +1,13 @@
 from nose.tools import *
-import doubtful.characters
+from doubtful.config import *
 
-def setup():
-    print "SETUP!"
+def room_test():
+	#setup_config('2')
+	config = ConfigurationLoader('2')
+	config.load('doubtful/example.config')
+	rooms = config.sections()
+	for room in rooms:
+		print config.options(room)
 
-def teardown():
-    print "TEAR DOWN!"
-
-def test_basic():
-    print "I RAN!"
+	print config.getlist('Room1', 'exits')
+	print config.getlist('Room2', 'contents')

@@ -15,3 +15,7 @@ def scan_test():
 	# Test Caps and Errors
 	assert_equal(lexicon.parse('MAP'), [('command', 'map')])
 	assert_equal(lexicon.parse('tHis IS CrAZy'), [('error', 'this'), ('error', 'is'), ('error', 'crazy')])
+
+	# Jim's Scenario tests
+	assert_equal(lexicon.parse('go south'), [('verb', 'go'), ('direction', 'south') ])
+	assert_equal(lexicon.parse('look'), [('verb', 'look')])

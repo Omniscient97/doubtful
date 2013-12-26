@@ -2,7 +2,7 @@ WORD_TYPES = {
 	'verb' : ['go', 'use', 'eat', 'look', 'get', 'check', 'drink', 'talk', 'take', 'pick', 'listen'],
 	'direction' : ['north', 'south', 'east', 'west', 'up', 'down', 'left', 'right'],
 	'noun': ['door', 'key', 'man', 'woman', 'trinket', 'glasses', 'table', 'apple', 'song'],
-	'preposition': ['on', 'under', 'from', 'to'],
+	'preposition': ['on', 'under', 'from', 'to', 'behind'],
 	'stop': ['the', 'in', 'of'],
 	'article': ['a', 'an'],
 	'command': ['status', 'help', 'map'],
@@ -10,6 +10,10 @@ WORD_TYPES = {
 }
 
 VOCABULARY = {word: word_type for word_type, words in WORD_TYPES.items() for word in words}
+
+class Command(object):
+	def __init__(self):
+		pass
 
 class Lexicon(object):
 
