@@ -61,7 +61,8 @@ while game:
 				if item.type == 'person':
 					player.talk(item)
 		if word[1] == 'map':
-			print('Not implemented yet.')
+			#print('Not implemented yet.')
+			print_map()
 		if word[1] == 'exit':
 			game = False
 		if word[0] == 'error':
