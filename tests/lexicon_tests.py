@@ -1,7 +1,7 @@
 from nose.tools import *
 from doubtful.lexicon import Lexicon
 
-def scan_test():
+def lexicon_parse_test():
 	lexicon = Lexicon()
 
 	# Basic tokenising 

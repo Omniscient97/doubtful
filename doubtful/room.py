@@ -8,3 +8,6 @@ class Room(object):
 		for item in contents:
 			self.inventory.add(item)
 		self.exits = ['none', 'none', 'none', 'none'] # exits = [north, east, south, west]
+
+	def add(self, item):
+		self.inventory.add(item)

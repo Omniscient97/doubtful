@@ -1,7 +1,7 @@
 from nose.tools import *
 from doubtful.config import *
 
-def room_test():
+def config_room_test():
 	#setup_config('2')
 	config = ConfigurationLoader('2')
 	config.load('doubtful/example.config')

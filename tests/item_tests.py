@@ -1,7 +1,9 @@
 from nose.tools import *
 from doubtful.item import *
 
-def item_test():
-	item1 = Item('Test_Item 1')
-	item2 = Item('Test_Item 2')
-	item3 = Item('Test_Item 3')
+def item_basic_test():
+	item1 = Item('Firesword')
+	item2 = Item('Icepick')
+	item3 = Item('Aegis of Light')
+
+	assert_equal((item1.name, item1.type), ('Firesword', 'item'))
