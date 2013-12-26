@@ -7,7 +7,8 @@ def room_test():
 	config.load('doubtful/example.config')
 	rooms = config.sections()
 	for room in rooms:
-		print config.options(room)
+		#print config.options(room)
+		pass
 
-	print config.getlist('Room1', 'exits')
-	print config.getlist('Room2', 'contents')
+	#print config.getlist('Room1', 'exits')
+	#print config.getlist('Room2', 'contents')

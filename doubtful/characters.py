@@ -6,11 +6,22 @@ class Player(object):
 		self.name = ''
 		self.room = ''
 		self.type = 'player'
-	def set_name(self):
-		while self.name == '':
-			name = input('Please input your name: ').lower()
-			if name not in BLACKLIST_NAMES:
-				self.name = name.capitalize()
+	def set_name(self, player_input=False):
+		if player_input != False:
+			try:
+				player_input = player_input.lower()
+				player_input = player_input.capitalize()
+				if player_input == '':
+					raise AttributeError('Empty String')
+				self.name = player_input
+			except AttributeError:
+				print('ERROR: Invalid-Name => Defaulting Player name to "Default"')
+				self.name = 'Default'
+		else:
+			while self.name == '':
+				name = input('Please input your name: ').lower()
+				if name not in BLACKLIST_NAMES:
+					self.name = name.capitalize()
 	def talk(self, target):
 		print('%s: ' % target.name + target.dialogue)
 

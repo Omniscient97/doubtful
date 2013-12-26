@@ -13,7 +13,7 @@ def print_status(player):
 	print('Room: %s' % player.room.name)
 	print('')
 lexicon = Lexicon()
-config = ConfigurationLoader()
+config = ConfigurationLoader('3')
 config.load('doubtful/example.config')
 
 player = Player()
