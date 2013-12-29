@@ -1,7 +1,7 @@
 from nose.tools import *
 from doubtful.lexicon import Lexicon
 
-def lexicon_parse_test():
+def lexical_parse_test():
 	lexicon = Lexicon()
 
 	# Basic tokenising 
@@ -19,3 +19,15 @@ def lexicon_parse_test():
 	# Jim's Scenario tests
 	assert_equal(lexicon.parse('go south'), [('verb', 'go'), ('direction', 'south') ])
 	assert_equal(lexicon.parse('look'), [('verb', 'look')])
+
+def classify_test():
+	lexicon = Lexicon()
+	command = lexicon.classify([('verb', 'take'), ('adjective', 'red'), ('noun', 'key')])
+	assert_equal(command.verb.name, 'take')
+	assert_equal(command.object.name, 'key')
+	print command.object.name, command.object.type, command.object.modifiers
+	# a Command object with a Verb containing its object which is class and contains modifiers
+	#	Command
+	#	 ^- verb = Verb
+	#       ^- direct object, indirect_object (if applicable)
+	#           ^- modifiers

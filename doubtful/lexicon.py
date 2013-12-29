@@ -2,9 +2,10 @@ WORD_TYPES = {
 	'verb' : ['go', 'use', 'eat', 'look', 'get', 'check', 'drink', 'talk', 'take', 'pick', 'listen'],
 	'direction' : ['north', 'south', 'east', 'west', 'up', 'down', 'left', 'right'],
 	'noun': ['door', 'key', 'man', 'woman', 'trinket', 'glasses', 'table', 'apple', 'song'],
+	'adjective': ['red'],
 	'preposition': ['on', 'under', 'from', 'to', 'behind'],
 	'stop': ['the', 'in', 'of'],
-	'article': ['a', 'an'],
+	'article': ['a', 'an', 'the'],
 	'command': ['status', 'help', 'map'],
 	'extra': ['exit', 'save', 'load', 'reset']
 }
@@ -12,8 +13,19 @@ WORD_TYPES = {
 VOCABULARY = {word: word_type for word_type, words in WORD_TYPES.items() for word in words}
 
 class Command(object):
-	def __init__(self):
-		pass
+	def __init__(self, verb):
+		self.verb = verb
+		self.object = None
+
+class Verb(object):
+	def __init__(self, name):
+		self.name = name
+
+class Object(object):
+	def __init__(self, name, type):
+		self.name = name
+		self.type = type
+		self.modifiers = []
 
 class Lexicon(object):
 
@@ -43,8 +55,25 @@ class Lexicon(object):
 				clean_tokens.remove(token)
 		return clean_tokens
 
+	def classify(self, tokens):
+		command = False
+		if tokens[0][0] == 'verb':
+			for token in tokens[0:]:
+				command = Command(Verb(tokens[0][1]))
+				if token[0] == 'noun':
+					object = Object(token[1], 'direct')
+					command.object = object
+					# check for adjective:
+					if tokens[tokens.index(token) - 1][0] == 'adjective':
+						object.modifiers.append(tokens[tokens.index(token) - 1][1])
+			
+		return command
+
 	def parse(self, sentence):
-		return self.clean(self.scan(self.preprocess(sentence)))
+		output = self.preprocess(sentence)
+		output = self.scan(output)
+		output = self.clean(output)
+		return output
 
 def return_verbs():
 	verb_list = []
