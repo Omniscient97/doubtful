@@ -21,13 +21,25 @@ def lexical_parse_test():
 	assert_equal(lexicon.parse('look'), [('verb', 'look')])
 
 def classify_test():
-	lexicon = Lexicon()
-	command = lexicon.classify([('verb', 'take'), ('adjective', 'red'), ('noun', 'key')])
-	assert_equal(command.verb.name, 'take')
-	assert_equal(command.object.name, 'key')
-	print command.object.name, command.object.type, command.object.modifiers
+
 	# a Command object with a Verb containing its object which is class and contains modifiers
 	#	Command
 	#	 ^- verb = Verb
 	#       ^- direct object, indirect_object (if applicable)
 	#           ^- modifiers
+
+	lexicon = Lexicon()
+
+	# test verb/object with 1 adjective
+	command = lexicon.classify([('verb', 'take'), ('adjective', 'red'), ('noun', 'key')])
+	assert_equal(command.verb.name, 'take')
+	assert_equal(command.object.name, 'key')
+	assert_equal(command.object.modifiers, ['red'])
+
+	# test verb/object with 1 adjective
+	command = lexicon.classify([('verb', 'take'), ('adjective', 'big'), ('adjective', 'red'), ('noun', 'key')])
+	assert_equal(command.verb.name, 'take')
+	assert_equal(command.object.name, 'key')
+	assert_equal(command.object.modifiers, ['big', 'red'])
+	
+	

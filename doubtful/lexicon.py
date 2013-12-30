@@ -58,8 +58,9 @@ class Lexicon(object):
 	def classify(self, tokens):
 		command = False
 		if tokens[0][0] == 'verb':
+			command = Command(Verb(tokens[0][1]))
 			for token in tokens[0:]:
-				command = Command(Verb(tokens[0][1]))
+				
 				if token[0] == 'noun':
 					object = Object(token[1], 'direct')
 					command.object = object
