@@ -22,8 +22,6 @@ player.set_name()
 print('Hello,', player.name)
 print('Type "exit" to quit the game')
 
-
-
 room1 = Room('Room 1','You\'re in a room which is completely empty save for the man standing beside you. There is a doorway to the North.', [])
 
 jim = NPC('Jim', room1)
@@ -61,7 +59,6 @@ while game:
 				if item.type == 'person':
 					player.talk(item)
 		if word[1] == 'map':
-			#print('Not implemented yet.')
 			print_map()
 		if word[1] == 'exit':
 			game = False

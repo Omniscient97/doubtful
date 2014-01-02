@@ -64,13 +64,19 @@ class Lexicon(object):
 				if token[0] == 'noun':
 					object = Object(token[1], 'direct')
 					command.object = object
-					# check for adjective:
-					if tokens[tokens.index(token) - 1][0] == 'adjective':
-						object.modifiers.append(tokens[tokens.index(token) - 1][1])
+
+					# Check for Adjective:
+					index = tokens.index(token) - 1
+					while True:
+						if tokens[index][0] == 'adjective':
+							object.modifiers.append(tokens[index][1])
+						elif tokens[index][0] == 'verb':
+							break
+						index = index - 1
 			
 		return command
 
-	def parse(self, sentence):
+	def tokenise(self, sentence):
 		output = self.preprocess(sentence)
 		output = self.scan(output)
 		output = self.clean(output)

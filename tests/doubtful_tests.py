@@ -1,2 +1,3 @@
 from nose.tools import *
-import doubtful
+from doubtful.game import *
+
