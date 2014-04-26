@@ -19,7 +19,7 @@ class Player(object):
 				self.name = 'Default'
 		else:
 			while self.name == '':
-				name = input('Please input your name: ').lower()
+				name = raw_input('Please input your name: ').lower()
 				if name not in BLACKLIST_NAMES:
 					self.name = name.capitalize()
 	def talk(self, target):
